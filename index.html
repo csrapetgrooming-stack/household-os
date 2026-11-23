@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#102326"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; font-src data:; img-src data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; form-action 'none'"><title>Household OS — UX Pass A offline preview</title><style>:root{--ink:#172b2b;--muted:#6b7774;--line:#dce3de;--paper:#f7f7f2;--white:#fff;--forest:#1f5246;--teal:#cae0d4;--amber:#efd8ab;--red:#9d4b3e;--radius:17px;--shadow:0 12px 35px rgba(30,55,48,.06);font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--ink);font-synthesis:none}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--paper)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.45;cursor:default}a{color:inherit;text-decoration:none}.hidden{display:none!important}.auth-wrap{min-height:100dvh;display:grid;place-items:center;padding:28px;background:radial-gradient(ellipse at 83% 19%,#456f60 0,#193936 43%,#102727 90%)}.auth-card{width:min(450px,100%);background:#fff;border-radius:25px;padding:38px 37px;box-shadow:0 28px 95px #091c1b55}.brand{font-size:14px;letter-spacing:.11em;font-weight:700;display:flex;gap:9px;align-items:center;white-space:nowrap}.brand b{color:#b2d0a7}.brand.big{font-size:15px}.mark{width:35px;height:35px;background:#e0ebdd;color:#32664f;display:grid;place-items:center;border-radius:10px;font-size:29px;font-weight:400;letter-spacing:0}.auth-card h1{font-size:43px;line-height:1.08;letter-spacing:-.055em;margin:11px 0}.auth-card p{line-height:1.65}.eyebrow,.section-kicker,.side-overline{font-size:10px;letter-spacing:.17em;font-weight:800;text-transform:uppercase;color:#7e8e85}.muted,.description{color:var(--muted)}.footnote{font-size:12px;color:#74837e;text-align:center;margin-top:22px}.auth-card label,.form-grid label,.stack-label{display:flex;flex-direction:column;gap:7px;color:#384d48;font-size:12px;font-weight:700;margin-top:18px}.auth-card input,.form-grid input,.form-grid textarea,.form-grid select,.stack-label input,.stack-label select,.stack-label textarea,.quick-capture input{width:100%;border:1px solid #d6dfd8;border-radius:11px;background:#fff;padding:12px 13px;outline:none;font-size:14px;color:var(--ink)}input:focus,textarea:focus,select:focus{border-color:#668f7d;box-shadow:0 0 0 3px #cbe6d34d}textarea{resize:vertical;min-height:78px}.auth-card .primary{margin-top:24px}.primary,.secondary,.light-btn,.flat-btn,.danger-btn{border:0;padding:11px 17px;border-radius:11px;font-weight:700;font-size:13px}.primary{color:#fff;background:var(--forest)}.primary:hover{background:#163f34}.secondary{background:#dfece2;color:#295345}.light-btn{color:#415a50;background:#fff;border:1px solid var(--line)}.flat-btn{color:var(--forest);background:transparent}.danger-btn{background:#fff1ec;color:#993c32}.full{width:100%;display:flex;justify-content:space-between}.error{color:#ba3e32;min-height:15px;font-size:12px}.sidebar{background:#112c2b;color:#dfece4;width:242px;position:fixed;inset:0 auto 0 0;display:flex;flex-direction:column;padding:27px 18px;z-index:40}.sidebar .brand{padding:4px 9px 32px;color:#fff}.sidebar .mark{background:#275348;color:#eaf5e9}.side-overline{padding:0 12px 10px;color:#8da99e;font-size:9px}.sidebar nav{display:grid;gap:4px;overflow-y:auto}.nav-btn{display:flex;gap:13px;align-items:center;border:none;background:transparent;color:#bbd1c7;padding:12px 14px;text-align:left;border-radius:11px;font-size:13px;font-weight:600;width:100%}.nav-btn:hover,.nav-btn.active{background:#294b45;color:#fff}.nav-icon{width:18px;font-size:18px;line-height:1;display:inline-block;text-align:center}.nav-sep{height:1px;background:#33524d;margin:12px 5px}.sidebar-foot{margin-top:auto;border-top:1px solid #2a4641;padding:18px 12px 0;font-size:11px;color:#b6cfc2;display:flex;align-items:center;gap:8px}.status-light{width:7px;height:7px;border-radius:100%;background:#a4d5ae}.main-wrap{margin-left:242px}.topbar{height:74px;background:#fff;border-bottom:1px solid #e9ede7;display:flex;align-items:center;justify-content:space-between;padding:0 41px;position:sticky;top:0;z-index:20}.breadcrumbs{font-size:13px;font-weight:700}.slash{color:#9cb0a5;padding:0 12px}.header-right{display:flex;align-items:center;gap:16px}.pill-outline{font-size:11px;border:1px solid #e1e9e2;padding:7px 11px;border-radius:18px;color:#527764;background:#f6faf6}.avatar{display:grid;place-items:center;width:33px;height:33px;background:#d8e7da;color:#345f4e;border-radius:50%;font-size:13px;font-weight:800}.icon-btn{border:0;background:transparent;font-size:20px;color:#678174}.content{max-width:1440px;padding:38px 43px 60px;margin:auto}.page-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:22px;margin-bottom:24px}.page-heading h1{font-size:34px;letter-spacing:-.045em;margin:6px 0 5px}.page-heading p{margin:0;color:#7b8880;font-size:13px;line-height:1.5}.heading-actions{display:flex;gap:9px}.quick-capture{display:flex;gap:12px;padding:13px;background:#e7eee7;border-radius:17px;border:1px solid #dce7dd;margin-bottom:27px;align-items:center}.quick-capture input{border:0;background:#fff;height:45px;box-shadow:0 2px 8px #45645309}.capture-symbol{font-size:22px;color:var(--forest);margin:0 5px 0 7px}.tabs{display:flex;gap:6px;margin-bottom:22px;border-bottom:1px solid var(--line)}.tab{padding:12px 20px;background:transparent;border:0;border-bottom:3px solid transparent;color:#718179;font-size:13px;font-weight:700}.tab.active{color:#275647;border-bottom-color:#2c6d54}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-bottom:25px}.card,.panel{background:#fff;border:1px solid #e4eae3;border-radius:17px;box-shadow:var(--shadow)}.card{padding:19px;min-height:156px}.card .icon-circle{border-radius:13px;width:39px;height:39px;display:grid;place-items:center;font-size:19px;background:#e2ede4;color:var(--forest);margin-bottom:17px}.card .small-title{font-size:13px;color:#647b6e;font-weight:700}.card h3{font-size:24px;letter-spacing:-.05em;margin:5px 0 3px}.card p{margin:0;color:#7d8b84;font-size:11px}.card[data-emphasis='true']{background:#e6eee6;border-color:#d8e5d7}.card[data-emphasis='true'] .icon-circle{background:#bdd9c8}.panel{margin-bottom:20px;overflow:hidden}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:19px 23px 15px;border-bottom:1px solid #f0f3ee}.panel-head h2{font-size:15px;letter-spacing:-.02em;margin:0}.panel-body{padding:16px 22px 21px}.panel-body.empty{color:#9aa69e;font-size:13px;padding:30px 24px}.suggestions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.suggestion{padding:17px;border:1px solid #dde8de;border-radius:14px;background:#fbfdfa;min-height:165px;display:flex;flex-direction:column}.small-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:800;color:#7f9487}.suggestion h3{font-size:14px;margin:10px 0 6px;line-height:1.35}.suggestion p{font-size:11px;color:#8a9b8f;margin:0 0 12px;flex:1}.suggestion .light-btn{padding:8px 11px;font-size:11px;align-self:flex-start}.line-item{display:flex;align-items:center;gap:13px;padding:14px 2px;border-bottom:1px solid #edf0eb}.line-item:last-child{border-bottom:0}.line-item .mini-icon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:#eef3ec;color:#365b4c;font-size:18px;flex-shrink:0}.item-main{flex:1;min-width:0}.item-main strong{font-size:13px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.item-main small{color:#89958e;font-size:11px;display:block;margin-top:3px}.item-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.chip{display:inline-block;border-radius:20px;padding:5px 8px;font-weight:700;font-size:10px;background:#e5ede7;color:#4d755f;white-space:nowrap}.chip.urgent{background:#fbe5da;color:#9e5038}.chip.waiting{background:#f2ebd7;color:#9b7433}.chip.pending{background:#e9edf6;color:#627ab0}.chip.private{background:#f3e8ee;color:#925c7c}.section-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:17px}.fold>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;padding:16px 23px;font-size:14px;font-weight:750}.fold>summary::-webkit-details-marker{display:none}.fold>summary::after{content:'⌄';color:#8ba397}.fold[open]>summary::after{transform:rotate(180deg)}.fold .panel-body{border-top:1px solid #edf0eb}.empty-state{text-align:center;padding:42px 18px;color:#81928a;font-size:13px}.empty-state .large-symbol{font-size:42px;display:block;margin-bottom:10px;opacity:.65}.empty-state strong{display:block;color:#516f62;font-size:15px;margin-bottom:5px}.toolbar{display:flex;gap:12px;align-items:center;justify-content:space-between;margin:20px 0}.toolbar .count{font-size:12px;color:#84958a}.filter{display:flex;gap:6px;flex-wrap:wrap}.filter button{border:1px solid #dde6dd;background:#fff;color:#65786e;font-size:12px;padding:8px 13px;border-radius:9px}.filter button.active{background:#285846;color:#fff;border-color:#285846}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid label{margin-top:0}.form-grid .wide{grid-column:1 / -1}dialog{border:1px solid #e4eae3;border-radius:19px;box-shadow:0 20px 90px #1b312855;max-width:min(650px,calc(100vw - 24px));width:100%;max-height:89dvh;overflow:auto;padding:28px}dialog::backdrop{background:#152b2ba9}.modal-close{float:right;border:0;color:#72867b;background:#ecf1ed;border-radius:50%;height:33px;width:33px}.modal-title{margin:0 0 8px;font-size:24px;letter-spacing:-.035em}.modal-intro{font-size:13px;color:#7a8c7f;line-height:1.5;margin-bottom:22px}.modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:22px}.toast-zone{position:fixed;right:24px;bottom:24px;z-index:100;display:grid;gap:8px}.toast{background:#223f37;color:#fff;border-radius:10px;padding:12px 17px;box-shadow:var(--shadow);font-size:12px;max-width:360px}.toast.error{background:#a44c3a}.detail-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #edf0eb;font-size:13px}.detail-row span:first-child{color:#7b8b82}.detail-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.kitchen-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.mobile-nav{display:none}.warning{border-left:3px solid #dda15f;background:#fcf5e9;color:#805e30;padding:12px 15px;border-radius:8px;font-size:12px;line-height:1.5}.note{font-size:12px;color:#83938b;line-height:1.5}.muted-small{color:#94a29a;font-size:11px}
+@media(max-width:1160px){.cards{grid-template-columns:repeat(3,1fr)}.suggestions{grid-template-columns:1fr}.suggestion{min-height:90px}.section-grid{grid-template-columns:1fr}}@media(max-width:850px){.sidebar{transform:translateX(-103%);transition:transform .2s ease}.sidebar.open{transform:translateX(0);box-shadow:0 10px 35px #0008}.main-wrap{margin:0}.mobile-nav{display:block;border:0;background:transparent;font-size:22px;margin-right:16px}.topbar{padding:0 20px;height:65px}.content{padding:24px 20px 60px}.page-heading h1{font-size:29px}.cards{grid-template-columns:repeat(3,1fr)}.sidebar-foot{padding-bottom:8px}}@media(max-width:600px){.content{padding:24px 15px 58px}.topbar{padding:0 14px}.breadcrumbs{font-size:12px}.pill-outline{display:none}.page-heading{align-items:flex-start}.page-heading h1{font-size:28px}.heading-actions{flex-wrap:wrap;justify-content:flex-end}.cards{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.card{padding:12px;min-height:130px}.card .icon-circle{width:31px;height:31px;font-size:17px;margin-bottom:12px}.card .small-title{font-size:11px}.card h3{font-size:20px}.card p{font-size:9px}.quick-capture{padding:9px;gap:5px}.quick-capture input{font-size:12px;height:42px}.quick-capture .primary{padding:11px 13px}.panel-head,.panel-body{padding-left:14px;padding-right:14px}.line-item{gap:8px}.line-item .mini-icon{width:30px;height:30px}.item-actions{max-width:48%;gap:4px}.chip{font-size:9px}.item-actions .light-btn{font-size:10px;padding:6px}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:1}.kitchen-grid{grid-template-columns:1fr}.auth-card{padding:28px 22px}.auth-card h1{font-size:37px}.header-right{gap:8px}.toolbar{flex-wrap:wrap}}
+
+/* Household OS 2.1 UX Pass A: purposeful, readable creation flows. */
+dialog{padding:0;overflow:hidden;max-height:90dvh;border-radius:22px}
+#modal-content{padding:28px;max-height:90dvh;overflow-y:auto}
+dialog .modal-close{position:absolute;right:18px;top:18px;z-index:3;float:none;width:40px;height:40px}
+#modal-content:has(#record-form){display:flex;flex-direction:column;padding:26px 27px 0;max-height:90dvh;overflow:hidden}
+.create-header{flex:0 0 auto;padding-right:45px}
+.create-eyebrow{color:var(--forest);font-size:11px;font-weight:800;letter-spacing:.16em;margin:0 0 12px;text-transform:uppercase}
+.create-header .modal-title{font-size:29px;line-height:1.12;letter-spacing:-.045em;margin:0 0 11px}
+.create-header .modal-intro{font-size:14px;line-height:1.55;color:#68796f;margin:0 0 18px;max-width:52ch}
+#record-form{display:flex;flex-direction:column;min-height:0;flex:1;overflow:hidden}
+.create-fields{overflow-y:auto;min-height:0;flex:1;overscroll-behavior:contain;padding:2px 5px 22px 0;scrollbar-gutter:stable}
+#record-form .form-grid{gap:16px 15px}
+#record-form .field-item{margin:0;font-size:14px;line-height:1.38;letter-spacing:normal;text-transform:none;color:var(--ink);font-weight:700;gap:8px}
+#record-form .field-title{font-weight:750;display:block}
+#record-form input,#record-form select,#record-form textarea{font-size:16px;min-height:49px;line-height:1.35;padding:12px 14px;border-radius:12px}
+#record-form textarea{min-height:100px;resize:vertical}
+#record-form .field-help{font-size:13px;font-weight:400;line-height:1.45;color:#657870;margin-top:1px}
+.form-more{border:1px solid #dce7dd;background:#f5f8f4;border-radius:14px;margin:20px 0;padding:0}
+.form-more>summary{font-size:15px;font-weight:750;display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:16px 17px;list-style:none}
+.form-more>summary::-webkit-details-marker{display:none}
+.form-more>summary>span{font-size:20px;color:#5e7969}
+.form-more[open]>summary>span{transform:rotate(180deg)}
+.form-more>.form-grid{padding:6px 16px 18px}
+.visibility-grid{border-top:1px solid #e6ede6;padding-top:20px;margin-top:20px}
+#record-form .privacy-field{grid-column:1/-1}
+#record-form .invite-box{border:1px solid #dce7dd;border-radius:13px;padding:13px 14px;display:flex;flex-direction:column;gap:8px;margin:0}
+#record-form .invite-box legend{font-size:14px;font-weight:750;padding:0 5px}
+#record-form .invite-box label{display:flex;align-items:center;flex-direction:row;gap:12px;margin:0;padding:8px;font-size:15px;font-weight:600;text-transform:none;letter-spacing:normal;min-height:42px}
+#record-form .invite-box input[type=checkbox]{width:19px;height:19px;min-height:19px;flex-shrink:0;accent-color:var(--forest)}
+#record-form .invite-box p{margin:6px 0 0}
+.create-actions{flex:0 0 auto;display:flex;gap:9px;justify-content:flex-end;padding:14px 0 18px;margin:0;background:#fff;border-top:1px solid #e4ede7;box-shadow:0 -9px 17px #fff;z-index:2}
+.create-actions .primary,.create-actions .light-btn{min-height:46px;padding:12px 20px;font-size:14px}
+.form-error{color:#9d3e32;background:#ffefed;border-radius:10px;padding:11px 14px;font-size:14px;margin:15px 0 0}
+.inbox-history{overflow:hidden}
+.inbox-history>summary{list-style:none;cursor:pointer;padding:18px 22px;display:flex;justify-content:space-between;font-weight:750;font-size:15px}
+.inbox-history>summary::-webkit-details-marker{display:none}
+.inbox-history[open]>summary>span{transform:rotate(180deg)}
+#record-form :focus-visible,.form-more>summary:focus-visible,.inbox-history>summary:focus-visible{outline:3px solid #618b79;outline-offset:2px}
+.card p{font-size:max(12px, .83rem)}
+.chip{font-size:12px}
+.item-main small,.suggestion p{font-size:13px;line-height:1.5}
+@media(max-width:600px){
+ #modal-content{padding:25px 20px;}
+ #modal-content:has(#record-form){padding:26px 18px 0}
+ .create-header .modal-title{font-size:27px}
+ .create-header .modal-intro{font-size:14px;margin-bottom:15px}
+ #record-form .form-grid{grid-template-columns:1fr;gap:16px}
+ #record-form .field-item{font-size:15px}
+ .create-actions{padding-bottom:max(14px,env(safe-area-inset-bottom));}
+ .create-actions .primary{flex:1}
+ .card p{font-size:12px;line-height:1.35}
+ .card .small-title{font-size:12px}
+ .chip{font-size:11px}
+ .item-actions .light-btn{font-size:12px;padding:9px 12px;min-height:40px}
+ .item-main small{font-size:12px}
+ .quick-capture input{font-size:16px}
+}
+</style></head>
+<body><div class="prototype-ribbon" role="note">HOUSEHOLD OS · INTERACTIVE SHOWCASE · ALL DATA IS FICTIONAL <label style="margin-left:10px">View as <select id="demo-member" aria-label="Switch fictional household member" style="font-size:12px"><option>Alex</option><option>Morgan</option><option>Riley</option></select></label></div>
+<section id="signin" class="auth-wrap"><div class="auth-card"><div class="brand big"><span class="mark">⌂</span><span>HOUSEHOLD <b>OS</b></span></div><p class="eyebrow">YOUR FAMILY'S SHARED SPACE</p><h1>Welcome home.</h1><p class="muted">One place for the small things, the big plans, and everything in between.</p><form id="login-form"><label>Name <input name="name" autocomplete="username" placeholder="Alex, Morgan or Riley" required></label><label>Password <input type="password" name="password" autocomplete="current-password" required></label><button class="primary full">Sign in <span>↗</span></button><p id="login-error" role="alert" class="error"></p></form><p class="footnote">Public offline showcase · No server or accounts</p></div></section>
+<div id="shell" class="hidden"><aside id="side" class="sidebar"><div class="brand"><span class="mark">⌂</span><span>HOUSEHOLD <b>OS</b></span></div><div class="side-overline">YOUR HOME, ORGANIZED</div><nav id="navigation" aria-label="Primary navigation"></nav><div class="sidebar-foot"><span class="status-light"></span><span>Offline demo · Sample data</span></div></aside>
+<div class="main-wrap"><header class="topbar"><button class="mobile-nav" id="toggle-nav" aria-label="Toggle menu">☰</button><div class="breadcrumbs"><span id="top-section">Home</span><span class="slash"> / </span><span id="top-sub">My tasks</span></div><div class="header-right"><span class="pill-outline" id="server-state">● Demo mode</span><span class="avatar" id="user-avatar">P</span><button id="logout-btn" class="icon-btn" title="Sign out">⇥</button></div></header>
+<main id="main" class="content"></main></div></div>
+<div class="toast-zone" id="toasts" aria-live="polite"></div>
+<dialog id="modal"><form method="dialog"><button class="modal-close" value="cancel" aria-label="Close">✕</button></form><div id="modal-content"></div></dialog>
+<script>/* Offline synthetic demo. No live API, external requests, cookies, persistent storage, or family data. */
+(()=>{
+ const people=[{id:'demo-alex',name:'Alex',role:'admin'},{id:'demo-morgan',name:'Morgan',role:'member'},{id:'demo-riley',name:'Riley',role:'member'}];
+ let user=people[0], version=0;
+ const records=[
+  {id:'demo-task',kind:'task',title:'Check the porch light',details:{status:'open',priority:'routine',first_step:'Find the right replacement bulb',assignment_state:'unclaimed',assignee_id:null},owner_id:'demo-alex',created_by:'demo-alex',visibility:'shared',version:1,created_at:'2026-01-15T09:00:00-05:00'},
+  {id:'demo-meal',kind:'meal',title:'Soup and grilled cheese',details:{status:'idea',description:'A cold-evening option'},owner_id:'demo-alex',created_by:'demo-alex',visibility:'shared',version:1,created_at:'2026-01-15T09:00:00-05:00'}
+ ];
+ const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json'}});
+ const rec=(id)=>records.find(x=>x.id===id);
+ const listed=()=>records.filter(x=>x.visibility==='shared'||x.owner_id===user.id).filter(x=>user.name!=='Riley'||!['bill','income','expense','budget'].includes(x.kind));
+ const dashboard=()=>{
+  const tasks=listed().filter(x=>x.kind==='task'&&x.details.status!=='done');
+  const eligible=tasks.filter(x=>x.details.assignment_state!=='proposed'||x.details.assignee_id===user.id);
+  return {now:eligible.filter(x=>x.details.priority==='urgent'),week:[],future:eligible.filter(x=>x.details.priority!=='urgent'),waiting:[],suggestions:eligible.slice(0,3),pending:[],personal:eligible,today:'2026-01-15'};
+ };
+ const nextId=()=>`demo-${++version}`;
+ window.fetch=async (input,init={})=>{
+  const raw=typeof input==='string'?input:input.url;
+  if(!raw.startsWith('/api/'))throw new Error('This preview is offline. External requests are blocked.');
+  const url=raw.split('?')[0];const method=init.method||'GET';let data={};try{data=init.body?JSON.parse(init.body):{}}catch{}
+  if(url==='/api/session')return json({user,csrf:'offline-demo-only'});
+  if(url==='/api/login'){user=people.find(u=>u.name.toLowerCase()===String(data.name).toLowerCase())||people[0];return json({user,csrf:'offline-demo-only'});}
+  if(url==='/api/logout'){user=null;return json({ok:true});}
+  if(!user)return json({detail:'Not signed in'},401);
+  if(url==='/api/users')return json(people);
+  if(url==='/api/records'&&method==='GET')return json(listed());
+  if(url==='/api/calendar')return json(listed().filter(x=>['event','birthday'].includes(x.kind)));
+  if(url==='/api/dashboard')return json(dashboard());
+  if(url==='/api/finance/summary')return user.name==='Riley'?json({detail:'Not permitted'},403):json({month:'2026-01',shared:{income:0,expenses:0,budgets:{}},private:{income:0,expenses:0,budgets:{}}});
+  if(url==='/api/records'&&method==='POST'){
+   if(['bill','income','expense','budget'].includes(data.kind)&&user.name==='Riley')return json({detail:'Not permitted'},403);
+   const item={id:nextId(),kind:data.kind,title:data.title,details:{...data.details},owner_id:user.id,created_by:user.id,visibility:data.visibility||'shared',version:1,created_at:new Date().toISOString()};
+   if(data.kind==='task')Object.assign(item.details,{assignment_state:'unclaimed',assignee_id:null});
+   if(data.kind==='capture')Object.assign(item.details,{state:'inbox'});
+   records.unshift(item);return json(item);
+  }
+  const m=url.match(/^\/api\/records\/([^/]+)$/);
+  if(m){const item=rec(m[1]);if(!item)return json({detail:'Not found'},404);
+   if(method==='GET')return json(item);
+   if(method==='PATCH'){if(data.version!==item.version)return json({detail:'Changed by another user'},409);Object.assign(item.details,data.details||{});item.version++;return json(item);}
+  }
+  if(url.startsWith('/api/history/'))return json([{action:'create',actor:'Alex',occurred_at:'2026-01-15T09:00:00-05:00',detail:{}}]);
+  if(url.match(/^\/api\/records\/[^/]+\/attachments$/))return json([]);
+  if(url.startsWith('/api/tasks/')&&url.endsWith('/claim')){const id=url.split('/')[3],item=rec(id);Object.assign(item.details,{assignee_id:user.id,assignment_state:'accepted'});item.version++;return json(item);}
+  if(url.startsWith('/api/tasks/')&&url.endsWith('/propose')){const id=url.split('/')[3],item=rec(id);Object.assign(item.details,{assignee_id:data.user_id,assignment_state:'proposed'});item.version++;return json(item);}
+  if(url.startsWith('/api/tasks/')&&url.endsWith('/respond')){const id=url.split('/')[3],item=rec(id);item.details.assignment_state=data.decision;item.version++;return json(item);}
+  if(url==='/api/maintenance/generate')return json({generated:0});
+  return json({detail:'Not simulated in this offline design prototype'},422);
+ };
+})();
+</script>
+<script>'use strict';
+const $=s=>document.querySelector(s);
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const icons={home:'⌂',tasks:'✓',projects:'▦',grocery:'▤',inventory:'◫',meal:'♨',calendar:'▦',finance:'$',issues:'⚒',inbox:'⊞',routines:'↻',admin:'⚙'};
+const kinds={task:'Task',project:'Project',event:'Event',birthday:'Birthday',grocery:'Grocery item',inventory:'Inventory item',meal:'Meal',issue:'House issue',bill:'Bill',income:'Income',expense:'Expense',budget:'Budget',capture:'Capture',routine:'Recurring chore'};
+const financeKinds=['bill','income','expense','budget'];
+const state={user:null,csrf:null,users:[],records:[],dashboard:null,calendar:[],section:'home',tab:'personal',filter:'all',openedId:null,financeSummary:null};
+const names=()=>Object.fromEntries(state.users.map(x=>[x.id,x.name]));
+const person=id=>names()[id]||'Unassigned';
+const prettyDate=s=>{if(!s)return 'Date unknown';try{return new Date(s.length===10?s+'T12:00:00':s).toLocaleDateString(undefined,{month:'short',day:'numeric',year:s.slice(0,4)==='9999'?undefined:'numeric'});}catch{return s}};
+function toast(text,error=false){const el=document.createElement('div');el.className='toast'+(error?' error':'');el.textContent=text;$('#toasts').append(el);setTimeout(()=>el.remove(),4300)}
+async function api(url,method='GET',body=null,extra={}){
+ const options={method,credentials:'same-origin',headers:{...extra}};
+ if(method!=='GET')options.headers['X-CSRF-Token']=state.csrf||'';
+ if(body!==null){if(body instanceof Blob){options.body=body}else{options.headers['Content-Type']='application/json';options.body=JSON.stringify(body)}}
+ let res;try{res=await fetch(url,options)}catch{throw new Error('Cannot reach Household OS. Nothing was saved.');}
+ const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(typeof data.detail==='string'?data.detail:`Request failed (${res.status})`);
+ return data;
+}
+function setupNav(){const links=[['home','Overview'],['tasks','Tasks & chores'],['projects','Projects'],['grocery','Groceries'],['inventory','Pantry & freezer'],['meal','Meal planning'],['calendar','Family calendar'],['issues','House issues'],['routines','Recurring routines'],['inbox','Quick capture inbox']];if(state.user.name!=='Riley')links.splice(7,0,['finance','Finances']);if(state.user.role==='admin')links.push(['admin','Admin & accounts']);$('#navigation').innerHTML=links.map((a,i)=>`${i===1||i===3?'<div class="nav-sep"></div>':''}<button class="nav-btn ${state.section===a[0]?'active':''}" data-nav="${a[0]}"><span class="nav-icon">${icons[a[0]]}</span>${a[1]}</button>`).join('')}
+async function refresh(){const [records,dashboard,users,calendar,financeSummary]=await Promise.all([api('/api/records'),api('/api/dashboard'),api('/api/users'),api('/api/calendar'),state.user.name!=='Riley'?api('/api/finance/summary'):Promise.resolve(null)]);Object.assign(state,{records,dashboard,users,calendar,financeSummary});render()}
+function heading(title,sub,action){return `<div class="page-heading"><div><p class="section-kicker">HOUSEHOLD COMMAND CENTER</p><h1>${esc(title)}</h1><p>${esc(sub)}</p></div>${action?`<div class="heading-actions"><button class="primary" data-new="${action}">+ Add ${esc(kinds[action]||'item')}</button></div>`:''}</div>`}
+function quickCapture(){return `<form id="capture-form" class="quick-capture"><span class="capture-symbol">⊕</span><input name="capture" autocomplete="off" placeholder="Capture anything on your mind…" required maxlength="180"><button class="primary">Capture ↗</button></form>`}
+const active=kind=>state.records.filter(x=>!kind||x.kind===kind);
+function recordLine(r){const d=r.details||{};const due=d.due_date?` · ${prettyDate(d.due_date)}`:'';let sub=d.description||d.location||d.category||d.status||d.stock_status||'No details yet';sub=String(sub).slice(0,100);let status=d.assignment_state==='proposed'?'Awaiting answer':(r.kind==='capture'&&d.state==='sorted'?'Filed':(d.stock_status||d.status||'Open'));const urgent=(d.priority||d.urgency)==='urgent';return `<div class="line-item"><span class="mini-icon">${icons[{task:'tasks',project:'projects',inventory:'inventory',grocery:'grocery',meal:'meal',event:'calendar',birthday:'calendar',issue:'issues',capture:'inbox',routine:'routines'}[r.kind]]||'▤'}</span><div class="item-main"><strong>${esc(r.title)}</strong><small>${esc(sub)}${esc(due)}</small></div><div class="item-actions"><span class="chip ${urgent?'urgent':''}">${esc(status)}</span>${r.visibility==='private'?'<span class="chip private">Private</span>':''}<button class="light-btn" data-view="${r.id}">View</button></div></div>`}
+function recordList(rows,empty='Nothing recorded here yet.') {return rows.length?rows.map(recordLine).join(''):`<div class="empty-state"><span class="large-symbol">⌂</span><strong>You're all caught up here.</strong>${esc(empty)}</div>`}
+function panel(title,body,more=''){return `<section class="panel"><div class="panel-head"><h2>${esc(title)}</h2>${more}</div><div class="panel-body">${body}</div></section>`}
+function home(){const d=state.dashboard||{now:[],week:[],future:[],waiting:[],suggestions:[],pending:[],personal:[]};const name=state.user.name;const rows=state.tab==='personal'?d.personal:state.records.filter(x=>['task','issue','project'].includes(x.kind));const isPersonal=state.tab==='personal';let html=heading(`Hello, ${name}.`,'Your work, the household, and the next useful step. We keep unknowns unknown.');html+=quickCapture();html+=`<div class="tabs"><button class="tab ${isPersonal?'active':''}" data-tab="personal">My Tasks</button><button class="tab ${!isPersonal?'active':''}" data-tab="household">Household</button></div>`;
+html+=`<div class="cards"><div class="card" data-emphasis="true"><div class="icon-circle">⚡</div><span class="small-title">Now</span><h3>${d.now.length}</h3><p>Ready for attention</p></div><div class="card"><div class="icon-circle">▦</div><span class="small-title">This week</span><h3>${d.week.length}</h3><p>Upcoming work</p></div><div class="card"><div class="icon-circle">⌛</div><span class="small-title">Waiting</span><h3>${d.waiting.length}</h3><p>Blocked / on hold</p></div></div>`;
+html+=panel('Choose your next action',d.suggestions.length?`<div class="suggestions">${d.suggestions.map((r,i)=>`<div class="suggestion"><span class="small-label">OPTION ${i+1}</span><h3>${esc(r.title)}</h3><p>${esc(r.details.first_step||r.details.description||'Choose a small first step to start.')}</p><button class="light-btn" data-view="${r.id}">Open task ↗</button></div>`).join('')}</div>`:'<div class="empty-state"><span class="large-symbol">✧</span><strong>No task suggestions yet.</strong>Capture a task or create a chore to get started.</div>');
+if(d.pending.length)html+=panel('Inbox & assignment requests',recordList(d.pending));
+html+=`<div class="section-grid"><div>${panel(isPersonal?'Your work':'Shared household work',recordList(rows.slice(0,12),'Tasks and projects will appear here.'),`<button class="flat-btn" data-nav="tasks">See all ↗</button>`)}</div><div>${panel('Waiting on something',recordList(d.waiting.slice(0,5),'No blockers reported.'),`<span class="chip waiting">${d.waiting.length} waiting</span>`)}</div></div>`;
+html+=`<section class="panel"><details class="fold"><summary>This Week · ${d.week.length} upcoming</summary><div class="panel-body">${recordList(d.week)}</div></details><details class="fold"><summary>Future Goals · ${d.future.length} tracked</summary><div class="panel-body">${recordList(d.future)}</div></details></section>`;
+html+=`<div style="margin-top:10px;text-align:right"><button class="flat-btn" data-password="1">Change my password</button></div>`;return html;
+}
+function board(section){const settings={tasks:['Tasks & chores','Create a task or accept a proposed responsibility.','task',['task']],projects:['Household projects','Keep larger work connected across steps.','project',['project']],grocery:['Groceries','One shared list for planned and spontaneous shopping.','grocery',['grocery']],inventory:['Pantry & freezer','Approximate quantities and locations, never guessed stock.','inventory',['inventory']],meal:['Meal planning','Some dinners planned, some improvised.','meal',['meal']],calendar:['Family calendar','Shared occasions, RSVP, and private busy time.','event',['event','birthday']],finance:['Household finances','Shared budgets plus private personal records.','bill',financeKinds],issues:['House issues','Repairs, priorities, follow-ups, and landlord history.','issue',['issue']],routines:['Recurring routines','Daily essentials or one outstanding chore per routine.','routine',['routine']],inbox:['Capture inbox','Write it down now. Decide what to do with it later.','capture',['capture']]};
+if(section==='finance'&&state.user.name==='Riley'){return heading('Unavailable','Financial information is not accessible to this account.')}
+const [title,sub,defaultKind,arr]=settings[section];let rows=section==='calendar'?state.calendar:state.records.filter(x=>arr.includes(x.kind));
+const extra=section==='calendar'?'<button class="secondary" data-new="birthday">+ Birthday</button>':'';
+let html=heading(title,sub,defaultKind)+ (section==='inbox'?quickCapture():'');
+if(section==='routines'&&state.user.role==='admin')html+=`<div class="toolbar"><button class="light-btn" data-generate="1">Generate due routines and bills</button><span class="count">Automatic scheduler also runs in the background</span></div>`;
+if(section==='finance'){
+ const f=state.financeSummary||{month:'Not loaded',shared:{income:0,expenses:0,budgets:{}},private:{income:0,expenses:0,budgets:{}}};
+ html+=`<div class="warning">Financial records are limited to Alex and Morgan. Personal entries are private to their owner. A reported payment is not bank verification.</div>`;
+ html+=`<div class="cards" style="margin-top:17px"><div class="card"><span class="small-title">Shared income (${esc(f.month)})</span><h3>$${Number(f.shared.income).toFixed(2)}</h3><p>Entered, dated amounts only</p></div><div class="card"><span class="small-title">Shared expenses</span><h3>$${Number(f.shared.expenses).toFixed(2)}</h3><p>Entered, dated amounts only</p></div><div class="card"><span class="small-title">My private expenses</span><h3>$${Number(f.private.expenses).toFixed(2)}</h3><p>Not included in shared totals</p></div></div>`;
+ }
+
+if(section==='calendar')html+=`<p class="note">Private events belonging to another family member appear only as busy intervals. No birth year is required or shared.</p>`;
+html+=`<div class="toolbar"><span class="count">${rows.length} visible ${rows.length===1?'item':'items'}</span><div>${extra}</div></div>`;
+if(section==='inbox'){
+ const needed=rows.filter(r=>r.details?.state!=='sorted'), filed=rows.filter(r=>r.details?.state==='sorted');
+ html+=panel('Needs sorting',recordList(needed,'Nothing waiting to be sorted. Thoughts can stay here until you decide.'));
+ if(filed.length)html+=`<details class="panel inbox-history"><summary>Filed captures · ${filed.length} <span>⌄</span></summary><div class="panel-body">${filed.map(recordLine).join('')}</div></details>`;
+ return html;
+}
+html+=panel(title,rows.length?rows.map(r=>r.kind==='busy'?`<div class="line-item"><span class="mini-icon">▦</span><div class="item-main"><strong>${esc(person(r.details.person_id))} · Busy</strong><small>${esc(prettyDate(r.details.start))} · Details private</small></div></div>`:recordLine(r)).join(''):`<div class="empty-state"><span class="large-symbol">${icons[section]||'⌂'}</span><strong>Start with one entry.</strong>Nothing has been recorded here yet.</div>`);
+return html;
+}
+function admin(){if(state.user.role!=='admin')return heading('Unavailable','Only Alex can administer the household.');let html=heading('People & access','Three independent identities, one protected household database.');html+=`<div class="warning">Never reuse one password for everyone. When adding a member here, set a temporary password privately and have them change it during local setup. A production recovery workflow is still pending verification.</div>`;
+html+=panel('Members',state.users.map(u=>`<div class="line-item"><span class="mini-icon">${esc(u.name.slice(0,1))}</span><div class="item-main"><strong>${esc(u.name)}</strong><small>${u.role==='admin'?'Sole system administrator':u.name==='Riley'?'No financial access':'Shared and owner-private financial access'}</small></div></div>`).join(''));
+const missing=['Alex','Morgan','Riley'].filter(n=>!state.users.some(x=>x.name.toLowerCase()===n.toLowerCase()));
+if(missing.length)html+=panel('Create family login',`<form id="create-user" class="form-grid"><label>Name<select name="name">${missing.map(n=>`<option>${n}</option>`).join('')}</select></label><label>Password (12+ characters)<input name="password" type="password" autocomplete="new-password" minlength="12" required></label><div class="wide"><button class="primary">Create private account</button></div></form>`);
+html+=panel('Server integrity','<p class="note">Household data is stored on this workstation. Local or remote browser access depends on separately configured network services, so check the connection address and certificate before signing in. Windows administrators with disk access may read database files.</p>');return html}
+function render(){if(!state.user)return;setupNav();$('#user-avatar').textContent=state.user.name[0];$('#top-section').textContent=state.section==='home'?'Home':state.section[0].toUpperCase()+state.section.slice(1);$('#top-sub').textContent=state.section==='home'?state.tab==='personal'?'My Tasks':'Household':'Shared workspace';$('#main').innerHTML=state.section==='home'?home():state.section==='admin'?admin():board(state.section);}
+// Each household activity uses the same accessible shell, but gets its own questions.
+// Keep all field names aligned with the existing server contract.
+const createCopy={
+ task:{title:'Add a task',intro:'Something needs doing. Make it clear enough for whoever picks it up.',label:'What needs doing?',placeholder:'e.g. Replace the hallway lightbulb',cta:'Add task',success:'Task added. Nobody is assigned until they accept.'},
+ project:{title:'Start a project',intro:'Bigger than one chore? Give the work a destination.',label:'What are we trying to finish?',placeholder:'e.g. Repair the backyard fence',cta:'Start project',success:'Project started. You can break it into steps later.'},
+ grocery:{title:'Add to shopping list',intro:'One shared list. Fewer “I thought you bought it” conversations.',label:'What do we need?',placeholder:'e.g. Oat milk',cta:'Add to list',success:'Added to the shopping list. Not purchased yet.'},
+ inventory:{title:'Add to pantry & freezer',intro:'Rough counts are useful. This is a kitchen, not a warehouse.',label:'What do we have?',placeholder:'e.g. Brown rice',cta:'Add inventory item',success:'Inventory saved. Stock levels are estimates until someone updates them.'},
+ meal:{title:'Save a meal idea',intro:'An idea is not a promise to cook tonight. The kitchen can relax.',label:'What might we eat?',placeholder:'e.g. Chicken curry',cta:'Save meal idea',success:'Meal idea saved. No cooking or pantry changes were recorded.'},
+ event:{title:'Plan a calendar event',intro:'Put the time on the calendar. Invitations start as pending.',label:"What's happening?",placeholder:'e.g. Parent-teacher meeting',cta:'Add event',success:'Event saved. Invitations are pending until people RSVP.'},
+ birthday:{title:'Remember a birthday',intro:'Month and day are enough. Nobody needs an age announcement.',label:"Whose birthday is it?",placeholder:'e.g. Grandma',cta:'Save birthday',success:'Birthday saved without sharing an age or birth year.'},
+ issue:{title:'Record a house issue',intro:'Document what happened, where, and what needs checking. This does not contact anyone.',label:"What's wrong, and where?",placeholder:'e.g. Slow leak beneath the bathroom sink',cta:'Save issue',success:'House issue recorded. No message was sent to the landlord.'},
+ routine:{title:'Create a recurring chore',intro:'Set the rhythm once. Tasks appear according to the recurrence rule you choose.',label:'What needs to happen repeatedly?',placeholder:'e.g. Feed the cat',cta:'Create routine',success:'Routine saved. Assigned work still requires acceptance.'},
+ capture:{title:'Capture a thought',intro:'Get it out of your head. Sort it later, or leave it in the inbox.',label:'What should we remember?',placeholder:'e.g. Ask about the water bill',cta:'Save to inbox',success:'Captured. Sorting is optional.'},
+ bill:{title:'Record an expected bill',intro:'Track what is expected. This does not make a payment or verify an amount.',label:'What bill are we expecting?',placeholder:'e.g. Water utility',cta:'Save expected bill',success:'Expected bill recorded. No payment was made.'},
+ income:{title:'Record income',intro:'Record the information you know. This is not a bank transaction import.',label:'Where did this money come from?',placeholder:'e.g. Paycheck',cta:'Save income record',success:'Income record saved.'},
+ expense:{title:'Record an expense',intro:'Keep an accurate record. Amounts here are entered by household members.',label:'What was this expense?',placeholder:'e.g. Groceries',cta:'Save expense record',success:'Expense record saved. No bank transaction was initiated.'},
+ budget:{title:'Set a household budget',intro:'Set a planning limit, not a bank balance.',label:'What is this budget for?',placeholder:'e.g. Groceries',cta:'Save budget',success:'Budget saved. This does not change a bank balance.'}
+};
+function inputField(label,name,placeholder='',attrs='',help=''){
+ return `<label class="wide field-item"><span class="field-title">${esc(label)}</span><input name="${esc(name)}" ${attrs} placeholder="${esc(placeholder)}">${help?`<span class="field-help">${esc(help)}</span>`:''}</label>`;
+}
+function textareaField(label,name,placeholder='',help=''){
+ return `<label class="wide field-item"><span class="field-title">${esc(label)}</span><textarea name="${esc(name)}" placeholder="${esc(placeholder)}"></textarea>${help?`<span class="field-help">${esc(help)}</span>`:''}</label>`;
+}
+function selectField(label,name,options,help=''){
+ return `<label class="field-item"><span class="field-title">${esc(label)}</span><select name="${esc(name)}">${options.map(([value,title])=>`<option value="${esc(value)}">${esc(title)}</option>`).join('')}</select>${help?`<span class="field-help">${esc(help)}</span>`:''}</label>`;
+}
+function dateField(label,name,required=false,help=''){
+ return `<label class="field-item"><span class="field-title">${esc(label)}${required?'':' (optional)'}</span><input name="${esc(name)}" type="date" ${required?'required':''}>${help?`<span class="field-help">${esc(help)}</span>`:''}</label>`;
+}
+function extraFields(title,html){return `<details class="form-more"><summary>${esc(title)} <span>⌄</span></summary><div class="form-grid">${html}</div></details>`;}
+function formParts(kind){
+ const c=createCopy[kind];
+ const name=inputField(c.label,'title',c.placeholder,'required maxlength="180"');
+ const notes=textareaField(kind==='project'?'What does finished look like?':kind==='meal'?'Anything to remember?':kind==='issue'?'What have you observed?':'Useful details (optional)','description','Anything someone else needs to know');
+ const priority=selectField('How important is it?','priority',[['routine','Routine'],['soon','Soon'],['urgent','Urgent'],['future','Sometime later']],'Urgent is for something that actually needs attention now.');
+ const status=(label,opts)=>selectField(label,'status',opts);
+ const visibility=(kind==='event'? 'Shared events show details to everyone; private events show others only Busy.' : financeKinds.includes(kind)?'Private entries are visible only to you in the app. Shared entries are visible to Alex and Morgan.': 'Shared entries can be seen by everyone in the household. Private entries are just for you.');
+ let main=name, more='';
+ switch(kind){
+ case 'task': main+=inputField("What's the first small step? (optional)",'first_step','e.g. Check the bulb size');more=notes+dateField('When does it actually need doing?','due_date',false,'Leave blank rather than guessing.')+priority;break;
+ case 'project':main+=notes;more=status('Where is it now?',[['planning','Planning'],['active','In progress'],['waiting','Waiting for something']])+dateField('Target finish date','due_date',false,'No target date? Leave it blank.');break;
+ case 'grocery':main+=inputField('How much? (optional)','quantity','e.g. 1 carton, 2 bags');more=status('Shopping stage',[['needed','Needed'],['claimed','Someone is shopping']]);break;
+ case 'inventory':main+=selectField('Where is it stored?','location',[['Pantry','Pantry'],['Refrigerator','Refrigerator'],['Freezer','Freezer'],['Other','Other']]);main+=selectField('How much is left?','stock_status',[['unknown','Not sure'],['plenty','Plenty'],['low','Running low'],['out','Out']],'Low or Out will add an item to the shared grocery list if one is not already there.');more=inputField('Rough quantity (optional)','quantity','e.g. half a bag')+dateField('Best-by or expiration date','expiration_date',false,'Saved for reference. No expiration alerts will be sent.');break;
+ case 'meal':main+=notes;more=dateField('When might we make it?','planned_for',false,'Leave blank for an idea without a date.')+status('Meal stage',[['idea','Just an idea'],['planned','Planning to make it'],['cooked','Already cooked (confirmed)']]);break;
+ case 'event':main+=`<label class="field-item"><span class="field-title">Starts</span><input type="datetime-local" name="start" required><span class="field-help">Use your local date and time.</span></label><label class="field-item"><span class="field-title">Ends</span><input type="datetime-local" name="end" required><span class="field-help">Must be after the start.</span></label>`;more=notes+`<fieldset class="invite-box wide"><legend>Who should receive an invitation? (optional)</legend>${state.users.map(u=>`<label><input type="checkbox" name="invite" value="${esc(u.id)}"><span>${esc(u.name)}</span></label>`).join('')}<p class="field-help">Invited people start with a pending RSVP. Nobody is automatically attending.</p></fieldset>`;break;
+ case 'birthday':main+=inputField('Month and day (MM-DD)','month_day','e.g. 05-22','required pattern="[0-9]{2}-[0-9]{2}" inputmode="numeric"','No birth year needed. Shared birthdays do not show ages.');break;
+ case 'issue':main+=notes;main+=selectField('How urgent is it?','urgency',[['routine','Routine'],['soon','Soon'],['urgent','Urgent'],['future','Sometime later']]);more=dateField('When should we follow up?','follow_up_date')+status('Issue stage',[['reported','Reported here'],['waiting','Waiting on someone'],['repair_reported','Repair reported complete'],['verified','Verified resolved']]);break;
+ case 'routine':main+=selectField('How often?','frequency',[['daily','Every day'],['weekly','Every week'],['monthly','Every month']]);main+=dateField('When should it start?','start_date',true);more=selectField('How should unfinished chores work?','policy',[['separate','Each scheduled day gets its own task'],['one_outstanding','Keep one unfinished task until completed']],'For cat feeding, one task per day. For window cleaning, one outstanding may be enough.')+priority+inputField('First step (optional)','first_step','e.g. Put food bowls out');break;
+ case 'bill':main+=inputField('Expected amount (optional)','amount','Leave blank if unknown','type="number" min="0" step="0.01"');main+=dateField('Due date','due_date');more=selectField('Does it repeat?','frequency',[['none','No'],['monthly','Monthly']])+selectField('How certain is the amount?','amount_type',[['unknown','Unknown or estimated'],['fixed_verified','Amount verified']])+dateField('First due date for repeating bills','start_date',false,'Recurring bills need a starting due date.');break;
+ case 'income':case 'expense': main+=inputField('Amount (optional)','amount','Only enter what you know','type="number" step="0.01" min="0"');more=inputField('Category (optional)','category','e.g. Wages, utilities')+dateField('Date','due_date')+notes;break;
+ case 'budget':main+=inputField('Monthly limit','amount','e.g. 300','type="number" step="0.01" min="0" required')+inputField('Budget category','category','e.g. Groceries','required');break;
+ case 'capture':more=notes;break;
+ }
+ return {main,more,visibility};
+}
+function openCreate(kind){
+ if(!kinds[kind])return;
+ if(financeKinds.includes(kind)&&state.user.name==='Riley')return;
+ const c=createCopy[kind], f=formParts(kind);
+ const visibility=`<label class="field-item privacy-field"><span class="field-title">Who can see this?</span><select name="visibility"><option value="shared">Shared with household</option><option value="private">Only me</option></select><span class="field-help">${esc(f.visibility)}</span></label>`;
+ const html=`<header class="create-header"><p class="create-eyebrow">${esc(kinds[kind])} · NEW</p><h2 class="modal-title" id="create-title">${esc(c.title)}</h2><p class="modal-intro">${esc(c.intro)}</p></header><form id="record-form" data-kind="${kind}"><div class="create-fields"><div class="form-grid">${f.main}</div>${f.more?extraFields('More details',f.more):''}<div class="form-grid visibility-grid">${visibility}</div><p class="form-error" id="record-error" role="alert" hidden></p></div><div class="modal-actions create-actions"><button type="button" class="light-btn" data-close="1">Cancel</button><button class="primary" type="submit">${esc(c.cta)}</button></div></form>`;
+ $('#modal-content').innerHTML=html;$('#modal').showModal();
+}
+
+function suggestCategory(title){const s=title.toLowerCase();if(/bill|rent|electric|utility|insurance|payment|budget/.test(s))return 'bill';if(/milk|eggs|bread|buy|grocer|shop|cat food/.test(s))return 'grocery';if(/leak|pipe|broken|faucet|repair|landlord|fix/.test(s))return 'issue';if(/birthday|anniversary/.test(s))return 'birthday';if(/cook|dinner|meal|lunch/.test(s))return 'meal';return 'task'}
+function detailView(r){const d=r.details;const omit=new Set(['item_key','source_inventory_id','template_id','routine_id','proposed_by','accepted_at','created_by','period_key']);
+const humanLabels={assignee_id:d.assignment_state==='proposed'?'Offered to':'Assigned to',assignment_state:'Assignment',due_date:'Due date',planned_for:'Planned for',expiration_date:'Best-by / expiration date',stock_status:'Stock level',description:'Notes',first_step:'First step',revisit_date:'Revisit on',follow_up_date:'Follow up on',month_day:'Birthday',amount_type:'Amount confidence',start_date:'First date',policy:'Routine rule'};
+const humanValue=(k,v)=>k==='assignee_id'?person(v):k==='assignment_state'?({proposed:'Awaiting their answer',accepted:'Accepted',declined:'Declined',unclaimed:'Not claimed'}[v]||v):k==='status'?({done:'Done',open:'Open',idea:'Idea',needed:'Needed',planned:'Planned'}[v]||v):v;
+const rows=Object.entries(d).filter(([k,v])=>!omit.has(k)&&v!==''&&v!==null&&typeof v!=='object').map(([k,v])=>`<div class="detail-row"><span>${esc(humanLabels[k]||k.replaceAll('_',' '))}</span><strong>${esc(humanValue(k,v))}</strong></div>`).join('');let body=`<h2 class="modal-title">${esc(r.title)}</h2><p class="modal-intro">${esc(kinds[r.kind])} · ${r.visibility==='private'?'Only you':'Shared household'}</p>${rows||'<p class="note">Details not entered yet.</p>'}<div class="detail-actions">`;
+if(r.kind==='capture'&&d.state!=='sorted'){const k=suggestCategory(r.title);body+=`<button class="primary" data-sort="${r.id}" data-kind="${k}">Sort as ${kinds[k]}</button><span class="chip waiting">Suggestion, not automatic</span>`}
+if(r.kind==='task'){
+ if(d.assignment_state==='unclaimed'||d.assignment_state==='declined')body+=`<button class="secondary" data-claim="${r.id}">Claim task</button>`;
+ if(d.assignment_state==='proposed'&&d.assignee_id===state.user.id)body+=`<button class="secondary" data-respond="accepted">Accept</button><button class="light-btn" data-respond="declined">Decline</button>`;
+ if(d.assignment_state!=='proposed'&&d.status!=='done')body+=`<button class="primary" data-action="complete">Mark done</button><button class="light-btn" data-action="defer">Not now</button><button class="light-btn" data-action="resume">Resume note</button>`;
+ body+=`<button class="light-btn" data-assign="${r.id}">Offer assignment</button>`;
+ }
+ if(r.kind==='inventory')body+=`<button class="secondary" data-action="stock">Update stock</button>`;
+ if(r.kind==='grocery'&&d.status!=='put_away')body+=`<button class="secondary" data-action="next-grocery">${d.status==='needed'?'Claim for shopping':d.status==='claimed'?'Mark purchased':'Mark put away'}</button>`;
+ if(r.kind==='bill'&&!d.template)body+=`<button class="primary" data-action="paid">Report paid</button>`;
+ if(r.kind==='event'){
+  const myResponse=(d.rsvp||{})[state.user.id];
+  if(myResponse || state.user.id===r.owner_id)body+=`<span class="chip">RSVP: ${esc(myResponse||'Organizer')}</span><button class="secondary" data-rsvp="accepted">Accept</button><button class="light-btn" data-rsvp="tentative">Tentative</button><button class="light-btn" data-rsvp="declined">Decline</button>`;
+ }
+
+ if(r.kind==='issue')body+=`<button class="secondary" data-action="issue-note">Record observation</button>`;
+ body+=`<button class="light-btn" data-history="${r.id}">History</button>`;
+ body+=`</div><div id="extra-detail"></div>`;
+ if(r.kind==='issue'||r.kind==='project')body+=`<hr style="border:0;border-top:1px solid #edf0eb;margin-top:24px"><label class="stack-label">Attach evidence (PNG, JPEG, PDF up to 5 MB)<input type="file" id="evidence-file" accept="image/png,image/jpeg,application/pdf"></label><button type="button" class="light-btn" data-upload="${r.id}">Upload evidence</button><div id="files-list"></div>`;
+ $('#modal-content').innerHTML=body;state.openedId=r.id;$('#modal').showModal();if(['issue','project'].includes(r.kind))loadAttachments(r.id);}
+async function loadAttachments(id){try{const files=await api(`/api/records/${id}/attachments`);$('#files-list').innerHTML=files.map(x=>`<p class="note">📎 <a href="/api/attachments/${x.id}" target="_blank" rel="noopener">${esc(x.name)}</a> · ${Math.round(x.size/1024)} KB</p>`).join('')||'<p class="note">No evidence files attached.</p>';}catch(e){toast(e.message,true)}}
+async function handleAction(action,r){const d=r.details;if(action==='complete')await update(r,{status:'done'});
+if(action==='defer'){const why=prompt('Optional reason (leave blank to skip)','');if(why===null)return;const date=prompt('Optional revisit date (YYYY-MM-DD, blank for none)','');if(date===null)return;await update(r,{defer_reason:why,revisit_date:date||null})}
+if(action==='resume'){const last=prompt('Last action completed?',d.last_action||'');if(last===null)return;const next=prompt('Smallest next step?',d.next_step||'');if(next===null)return;const note=prompt('Optional resume note',d.resume_note||'');if(note===null)return;await update(r,{last_action:last,next_step:next,resume_note:note})}
+if(action==='stock'){const val=prompt('Stock status: unknown, plenty, low, out',d.stock_status||'unknown');if(val===null)return;if(!['unknown','plenty','low','out'].includes(val)){toast('Use unknown, plenty, low, or out.',true);return}await update(r,{stock_status:val});}
+if(action==='next-grocery'){const next={needed:'claimed',claimed:'purchased',purchased:'put_away'}[d.status||'needed'];if(next)await update(r,{status:next})}
+if(action==='paid'){if(!confirm('Record this payment as reported by you? This does not pay the bill or verify a bank transaction.'))return;await api(`/api/bills/${r.id}/payment`,'POST',{version:r.version,status:'paid'})}
+if(action==='issue-note'){const text=prompt('Observation or communication note (not sent to anyone):','');if(!text)return;await update(r,{description:(d.description||'')+'\n'+new Date().toLocaleString()+' — '+text})}
+await afterChange()}
+async function update(r,details){return api(`/api/records/${r.id}`,'PATCH',{version:r.version,details})}
+async function afterChange(message='Saved to household server'){if($('#modal').open)$('#modal').close();await refresh();toast(message)}
+async function submitRecord(form){const f=new FormData(form);const kind=form.dataset.kind;let details={};for(const [k,v] of f){if(['title','visibility'].includes(k))continue;if(k==='invite')continue;if(v==='')continue;details[k]=v}if(kind==='grocery'){details.status=details.status||'needed';details.item_key=f.get('title').trim().toLowerCase().replace(/\s+/g,' ')}if(kind==='routine')details.enabled=true;
+if(kind==='event'){if(!details.start||!details.end||new Date(details.end)<=new Date(details.start))throw new Error('The event must end after it starts.');for(const field of ['start','end']){const v=details[field];if(v)details[field]=new Date(v).toISOString()}details.rsvp={};for(const id of f.getAll('invite')){if(id!==state.user.id)details.rsvp[id]='pending'}}
+if(kind==='bill'){if(details.amount!==undefined)details.amount=Number(details.amount);else details.amount=null;if(details.frequency&&details.frequency!=='none'){details.template=true;details.start_date=details.start_date||details.due_date;if(!details.start_date)throw new Error('Choose a first due date for recurring bills')}else{details.template=false}details.status='expected';details.payment_evidence='unverified'}
+if(['budget','expense','income'].includes(kind))details.amount=details.amount!==undefined?Number(details.amount):null;
+if(kind==='capture')details={description:details.description||'',suggested_category:suggestCategory(f.get('title'))};
+await api('/api/records','POST',{kind,title:f.get('title'),details,visibility:f.get('visibility')||'shared'});await afterChange(createCopy[kind].success)}
+async function eventHandler(e){const target=e.target.closest('button');if(!target)return;
+try{
+if(target.id==='logout-btn'){await api('/api/logout','POST');state.user=null;$('#shell').classList.add('hidden');$('#signin').classList.remove('hidden');return}
+if(target.id==='toggle-nav'){$('#side').classList.toggle('open');return}
+if(target.dataset.nav){state.section=target.dataset.nav;$('#side').classList.remove('open');render();return}
+if(target.dataset.tab){state.tab=target.dataset.tab;render();return}
+if(target.dataset.new){openCreate(target.dataset.new);return}
+if(target.dataset.password){$('#modal-content').innerHTML=`<h2 class="modal-title">Change password</h2><p class="modal-intro">Use a unique password with at least 12 characters.</p><form id="password-form" class="form-grid"><label class="wide">Current password<input required type="password" name="current_password" autocomplete="current-password"></label><label class="wide">New password<input required minlength="12" type="password" name="new_password" autocomplete="new-password"></label><div class="wide"><button class="primary">Save new password</button></div></form>`;$('#modal').showModal();return}
+if(target.dataset.close){$('#modal').close();return}
+if(target.dataset.view){const r=state.records.find(x=>x.id===target.dataset.view)||state.calendar.find(x=>x.id===target.dataset.view);if(r?.kind==='busy')return;if(r)detailView(r);return}
+if(target.dataset.generate){const res=await api('/api/maintenance/generate','POST');await refresh();toast(`${res.generated} due occurrences generated`);return}
+const rid=state.openedId;const r=state.records.find(x=>x.id===rid);
+if(target.dataset.sort){const capture=state.records.find(x=>x.id===target.dataset.sort);if(!capture)return;const kind=target.dataset.kind;const derived=kind==='birthday'?{month_day:'01-01'}:{description:capture.details.description||'',source_capture_id:capture.id};if(kind==='birthday'){toast('Birthdays require a verified month and day; use the Birthday form.',true);return}await api('/api/records','POST',{kind,title:capture.title,details:derived,visibility:capture.visibility});await update(capture,{state:'sorted',confirmed_category:kind});await afterChange();return}
+if(target.dataset.history){const history=await api(`/api/history/${rid}`);const actions={create:'Created',update:'Updated',assignment_proposed:'Offered assignment',assignment_accepted:'Accepted assignment',assignment_declined:'Declined assignment',claim:'Claimed task',archive:'Archived'};
+$('#extra-detail').innerHTML='<h3>Change history</h3>'+history.map(x=>`<div class="detail-row"><span>${esc(actions[x.action]||x.action.replaceAll('_',' '))}</span><span>${esc(x.actor)} · ${esc(prettyDate(x.occurred_at))}</span></div>`).join('');return}
+if(target.dataset.claim){await api(`/api/tasks/${rid}/claim`,'POST');await afterChange();return}
+if(target.dataset.rsvp){await api(`/api/calendar/${rid}/rsvp`,'POST',{response:target.dataset.rsvp});await afterChange();return}
+if(target.dataset.respond){await api(`/api/tasks/${rid}/respond`,'POST',{decision:target.dataset.respond,version:r.version});await afterChange();return}
+if(target.dataset.assign){const label=state.users.map(x=>x.name).join(', ');const who=prompt(`Offer this task to whom? (${label})`,'');if(!who)return;const user=state.users.find(x=>x.name.toLowerCase()===who.trim().toLowerCase());if(!user){toast('No matching family member',true);return}await api(`/api/tasks/${rid}/propose`,'POST',{version:r.version,user_id:user.id});await afterChange();return}
+if(target.dataset.action){await handleAction(target.dataset.action,r);return}
+if(target.dataset.upload){const file=$('#evidence-file').files[0];if(!file)throw new Error('Choose a file');if(file.size>5*1024*1024)throw new Error('Maximum file size is 5 MB');await api(`/api/records/${rid}/attachments`,'POST',file,{'Content-Type':file.type,'X-Filename':file.name});await loadAttachments(rid);toast('Evidence saved');return}
+}catch(error){toast(error.message,true)}}
+async function formHandler(e){if(!e.target.matches('#login-form,#capture-form,#record-form,#create-user,#password-form'))return;e.preventDefault();const form=e.target;try{
+if(form.id==='login-form'){const f=new FormData(form);const login=await api('/api/login','POST',{name:f.get('name'),password:f.get('password')});state.user=login.user;state.csrf=login.csrf;$('#signin').classList.add('hidden');$('#shell').classList.remove('hidden');await refresh();return}
+if(form.id==='capture-form'){const f=new FormData(form);const title=String(f.get('capture')).trim();await api('/api/records','POST',{kind:'capture',title,details:{suggested_category:suggestCategory(title)}});form.reset();await refresh();toast('Captured in the inbox. Sorting is optional.');return}
+if(form.id==='password-form'){const f=new FormData(form);await api('/api/account/password','POST',{current_password:f.get('current_password'),new_password:f.get('new_password')});$('#modal').close();toast('Password changed. Other sessions signed out.');return}
+if(form.id==='create-user'){const f=new FormData(form);await api('/api/admin/users','POST',{name:f.get('name'),password:f.get('password')});form.reset();await refresh();toast('Member account created. Provide the password privately.');return}
+if(form.id==='record-form')await submitRecord(form);
+}catch(error){$('#login-error').textContent=form.id==='login-form'?error.message:'';
+ if(form.id==='record-form'){
+  const err=$('#record-error');if(err){err.textContent=error.message;err.hidden=false;err.scrollIntoView({block:'nearest',behavior:'smooth'});}
+ }
+ toast(error.message,true)}}
+async function bootstrap(){document.body.addEventListener('click',eventHandler);document.body.addEventListener('submit',formHandler);const s=await api('/api/session').catch(()=>({user:null}));if(s.user){state.user=s.user;state.csrf=s.csrf;$('#signin').classList.add('hidden');$('#shell').classList.remove('hidden');await refresh().catch(e=>toast(e.message,true))}else{$('#signin').classList.remove('hidden')}}
+bootstrap();
+</script>
+<script>document.getElementById('demo-member').addEventListener('change',async e=>{const res=await fetch('/api/login',{method:'POST',body:JSON.stringify({name:e.target.value})});const data=await res.json();state.user=data.user;state.csrf=data.csrf;await refresh();});</script>
+<style>.prototype-ribbon{position:fixed;top:0;right:0;left:0;z-index:9999;max-width:100%;background:#f0e4bc;color:#46381f;padding:7px 12px;font-size:11px;font-weight:800;letter-spacing:.045em;border-radius:0;box-shadow:0 2px 5px #2222}@media(max-width:600px){.prototype-ribbon{font-size:10px;padding:5px 8px;position:absolute;left:0;right:0;text-align:center;border-radius:0}}</style></body></html>
